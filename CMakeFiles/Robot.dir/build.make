@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /opt/local/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot
+CMAKE_SOURCE_DIR = /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot
+CMAKE_BINARY_DIR = /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Robot.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/Robot.dir/flags.make
 
 CMakeFiles/Robot.dir/main.cpp.o: CMakeFiles/Robot.dir/flags.make
 CMakeFiles/Robot.dir/main.cpp.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/Robot.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/main.cpp.o -c /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot/main.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Robot.dir/main.cpp.o -c /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot/main.cpp
 
 CMakeFiles/Robot.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Robot.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot/main.cpp > CMakeFiles/Robot.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot/main.cpp > CMakeFiles/Robot.dir/main.cpp.i
 
 CMakeFiles/Robot.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Robot.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot/main.cpp -o CMakeFiles/Robot.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot/main.cpp -o CMakeFiles/Robot.dir/main.cpp.s
 
 CMakeFiles/Robot.dir/main.cpp.o.requires:
 .PHONY : CMakeFiles/Robot.dir/main.cpp.o.requires
@@ -100,6 +100,6 @@ CMakeFiles/Robot.dir/clean:
 .PHONY : CMakeFiles/Robot.dir/clean
 
 CMakeFiles/Robot.dir/depend:
-	cd /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Robot/CMakeFiles/Robot.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot /Users/santiagolopezpina/Programacion/OOML/Proyectos/Lipobot/CMakeFiles/Robot.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Robot.dir/depend
 
