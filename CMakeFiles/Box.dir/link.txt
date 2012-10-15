@@ -1,0 +1,1 @@
+/usr/bin/c++    -g -ggdb -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/Box.dir/main.cpp.o  -o bin/Box  -lOOMLCore -lOOMLComponents -lOOMLParts 
