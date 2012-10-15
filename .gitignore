@@ -1,4 +1,5 @@
 *.cmake
+.DS_Store/
 CMakeFiles/
 Makefile/
 CMakeCache.txt
