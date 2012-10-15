@@ -1,4 +1,5 @@
 *.cmake
+*.stl
 .DS_Store/
 bin/
 CMakeFiles/
