@@ -29,7 +29,7 @@ int main()
 
 	// Arduino
 	IndentWriter body_writer;
-	Component arduino = ArduinoUNO(true,10,false).translate(20,15,0);
+	Component arduino = ArduinoUNO(true,10,false).translate(20,5,0);
 	arduino.rotate(0,180,-90);
 
 
