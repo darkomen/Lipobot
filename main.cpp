@@ -5,6 +5,7 @@
 #include <parts/FutabaS3003.h>
 #include <parts/BallWheelHolder.h>
 
+#include "config.h"
 #include <fstream>
 #include <iostream>
  
@@ -12,49 +13,41 @@ using namespace std;
  
 int main()
 {
+	IndentWriter body_writer;
+	// El valor del ancho viene dado por el tamaño de los servos y la distancia entre ellos
+	LX = ((LX_servo*2) + DX_servos);
 
-	// Base inicial
-	Component body = RoundedTablet(80,100,23,10,true,true,true,true,100,false);
-	// Hueco completo
-	Component body_hole = RoundedTablet(70,90,30,6,true,true,true,true,100,false).translate(5,5,3);
-	// Hueco en medio
-	Component body_hole2 = RoundedTablet(70,40,5,6,true,true,true,true,100,false).translate(5,42,0);
+	////////////
+	// CUERPO //
+	////////////
+	Component body       = RoundedTablet(LX,LY,LZ,10,true,true,true,true,100,false);   // Estructura básica.
+	Component body_hole  = RoundedTablet((LX-(TH*2)),(LY-(TH*2)),30,6,true,true,true,true,100,false).translate(TH,TH,3); // Vaciado interior.
+	Component body_hole2 = RoundedTablet((LX-(TH*2)),LY_servo,5,6,true,true,true,true,100,false).translate(TH,LY-(LY_servo+20),-1); // Hueco para pasar cables.
+	Component chasis     = body - body_hole - body_hole2;  // Creamos el chasis.
+
+	chasis.addLink(RefSys((LX_servo),(LY-20),(LZ_servo+3.5)).relRotate(0,90,180));   // link 0 Servo Izquierda
+	chasis.addLink(RefSys((LX_servo+DX_servos),(LY-20),3.5).relRotate(0,-90,180));	  // link 1 Servo Derecha
+	chasis.addLink(RefSys((LX/2),(TH/2),0).relRotate(0,0,0));		  // link 2 Rueda loca
 	
 	//	Rueda loca
-	 Component free_wheel = BallWheelHolder::create(38.5);
-	 free_wheel.translate(40,3,0);
-	 Component wheel_hole = Cylinder::create(7,40,65,false).translate(40,3,6);
-	 Component wheel_nut = Cylinder::create(3.6,3.1,6,false).translate(40,3,3);
-
+	 Component free_wheel = BallWheelHolder::create(34.5).translate(0,0,0);
+	 Component wheel_hole = Cylinder::create(7,40,60,false).translate(0,0,6);
+	 Component wheel_nut = Cylinder::create(3.6,3.1,6,false).translate(0,0,3);
+	 Component rueda_loca =   free_wheel - wheel_nut - wheel_hole;
 
 	// Arduino
-	IndentWriter body_writer;
 	Component arduino = ArduinoUNO(true,10,false).translate(20,5,0);
 	arduino.rotate(0,180,-90);
 
 
-
-	// Servos
-	Component l_servo = FutabaS3003(true,false);
-	l_servo.rotate(0,-90,0);
-	Component r_servo = l_servo.mirroredCopy(27,0,0);
-	r_servo.translate(30,0,0);
-
-	Component servos = l_servo + r_servo;
-	servos.translate(25,42,3.5);
-
-
-
-	Component main_body = body
-						  - body_hole
-						  - body_hole2
-						  - arduino
-						  - servos
-						  + free_wheel
-						  - wheel_nut
-						  - wheel_hole
+	Component main_body = chasis
+						  + FutabaS3003(true,false).moveToLink(chasis, 0)
+						  + FutabaS3003(true,false).moveToLink(chasis, 1)						  
+						  + free_wheel.moveToLink(chasis,2)
+						  - wheel_nut.moveToLink(chasis,2)
+						  - wheel_hole.moveToLink(chasis,2)
 						  ;	
-    
+    body_writer << LinksView(chasis);
     body_writer << main_body;
  
 	ofstream file("robot.scad");
