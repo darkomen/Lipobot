@@ -25,8 +25,8 @@ int main()
 	Component body_hole2 = RoundedTablet((LX-(TH*2)),LY_servo,5,6,true,true,true,true,100,false).translate(TH,LY-(LY_servo+20),-1); // Hueco para pasar cables.
 	Component chasis     = body - body_hole - body_hole2;  // Creamos el chasis.
 
-	chasis.addLink(RefSys((LX_servo),(LY-20),(LZ_servo+3.5)).relRotate(0,90,180));   // link 0 Servo Izquierda
-	chasis.addLink(RefSys((LX_servo+DX_servos),(LY-20),3.5).relRotate(0,-90,180));	  // link 1 Servo Derecha
+	chasis.addLink(RefSys((LX_servo),(LY-20),(LZ_servo+3.3)).relRotate(0,90,180));   // link 0 Servo Izquierda
+	chasis.addLink(RefSys((LX_servo+DX_servos),(LY-20),3).relRotate(0,-90,180));	  // link 1 Servo Derecha
 	chasis.addLink(RefSys((LX/2),(TH/2),0).relRotate(0,0,0));		  // link 2 Rueda loca
 	
 	//	Rueda loca
@@ -41,8 +41,8 @@ int main()
 
 
 	Component main_body = chasis
-						  + FutabaS3003(true,false).moveToLink(chasis, 0)
-						  + FutabaS3003(true,false).moveToLink(chasis, 1)						  
+						  - FutabaS3003(true,false).moveToLink(chasis, 0)
+						  -	 FutabaS3003(true,false).moveToLink(chasis, 1)						  
 						  + free_wheel.moveToLink(chasis,2)
 						  - wheel_nut.moveToLink(chasis,2)
 						  - wheel_hole.moveToLink(chasis,2)
