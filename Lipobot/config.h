@@ -2,7 +2,7 @@
 #define CONFIG_H
 	
 float LX;    					// Ancho del robot (eje X)
-#define LY 80		    	    // Largo del robot (eje Y) 80
+#define LY 85		    	    // Largo del robot (eje Y) 80
 #define LZ 23	 				// Alto del robot (eje Z) 23
 #define TH 5	 				// Ancho de la pared 
 #define LX_servo 26 			// Ancho del servo (eje X)

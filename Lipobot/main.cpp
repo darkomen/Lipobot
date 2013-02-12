@@ -23,16 +23,16 @@ int main()
 	////////////
 	Component body       = RoundedTablet(LX,LY,LZ,10,true,true,true,true,100,false);   // Estructura básica.
 	Component body_hole  = RoundedTablet((LX-(TH*2)),(LY-(TH*2)),30,6,true,true,true,true,100,false).translate(TH,TH,3); // Vaciado interior.
-	Component body_hole2 = RoundedTablet((LX-(TH*2)),LY_servo,5,6,true,true,true,true,100,false).translate(TH,LY-(LY_servo+20),-1); // Hueco para pasar cables.
-    Component front_hole = RoundedTablet((LX/2),LZ,TH*2.1,6,false,false,true,true,100,true).rotate(90,0,0).translate(LX/2,LY-TH,((LZ/2))+3.5); // Hueco para sensores
+    Component body_hole2 = RoundedTablet((LX-(TH*2)),LY_servo,5,6,true,true,true,true,100,false).translate(TH,LY-(LY_servo+15),-1); // Hueco para pasar cables.
+    Component front_hole = RoundedTablet((LX/1.6),LZ,TH*2.1,6,false,false,true,true,100,true).rotate(90,0,0).translate(LX/2,LY-TH,((LZ/2))+3.5); // Hueco para sensores
 	Component chasis     = body - body_hole - body_hole2 - front_hole;  // Creamos el chasis.
 
 
     chasis.addLink(RefSys((LX_servo),(LY-14),(LZ_servo+3.5)));   // link 0 Servo Izquierda
-    chasis.addLink(RefSys((LX_servo+DX_servos),(LY-14),(3.0)));	  // link 1 Servo Derecha
-    chasis.addLink(RefSys((LX/2),(TH/2),0));		  // link 2 Rueda loca
-    chasis.addLink(RefSys(((LX/2)-8),((LY)-10),(2.8))); //link 3 Tuerca sensores
-    chasis.addLink(RefSys(((LX/2)+8),((LY)-10),(3))); //link 4 tuerca sensores
+    chasis.addLink(RefSys((LX_servo+DX_servos),(LY-14),(3.0)));	 // link 1 Servo Derecha
+    chasis.addLink(RefSys((LX/2),(TH/2),0));                     // link 2 Rueda loca
+    chasis.addLink(RefSys(((LX/2)-8),((LY)-6),(2.8)));           //link 3 Tuerca sensores
+    chasis.addLink(RefSys(((LX/2)+8),((LY)-6),(2.8)));           //link 4 tuerca sensores
 	
     // baterí
     //Component =  RoundedTablet(LX,LY,LZ,10,true,true,true,true,100,false);
@@ -59,7 +59,7 @@ int main()
                           - Cylinder(1.6,8,100,true).moveToLink(chasis,4)
                           - NutShape(M3,0,1).moveToLink(chasis,4)
 						  ;	
-    body_writer << LinksView(chasis);
+    //body_writer << LinksView(chasis);
     body_writer << main_body;
  
 	ofstream file("robot.scad");
